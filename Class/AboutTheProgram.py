@@ -2,6 +2,9 @@ import os
 import subprocess
 import ctypes
 import sys
+import time
+import pyautogui
+
 from PyQt6.QtWidgets import QDialog
 from ui_AboutTheProgram import Ui_AboutTheProgram
 
@@ -10,13 +13,30 @@ class AboutTheProgram(QDialog, Ui_AboutTheProgram):
         super().__init__()
         self.setupUi(self)
         self.pushFixMouse.clicked.connect(self.FixMouse)
+        self.pushFixRegedit.clicked.connect(self.FixRegedit)
 
     def FixMouse(self):
-        # Get the absolute path to the batch file
         batch_file_path = os.path.join('FileFixInputLag', 'FixMouse', 'Mouse.bat')
-
-        # Execute the batch file
         subprocess.run(batch_file_path, shell=True)
+
+
+    def FixRegedit(self):
+        bat_files = [
+            ('DecreaseDelay.bat', 'nopause'),
+            ('DisableDeliveryOptimization.bat', 'nopause'),
+            ('DisableDownloadMapsManager.bat', None)
+        ]
+        # Устанавливаем кодировку один раз
+        subprocess.run(['chcp', '65001'], shell=True)
+
+        # Выполняем бат-файлы
+        for bat_file, arg in bat_files:
+            bat_path = os.path.join('FileFixInputLag', 'FixRegedit', bat_file)
+            if arg:
+                subprocess.run([bat_path, arg], shell=True)
+            else:
+                subprocess.run(bat_path, shell=True)
+
 
 if __name__ == "__main__":
     import sys
