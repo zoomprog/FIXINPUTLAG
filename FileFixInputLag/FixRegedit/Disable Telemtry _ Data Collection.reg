@@ -1,0 +1,13 @@
+Windows Registry Editor Version 5.00                                                                                                                                                                                     YouTube.Com/AdamxYT
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DiagTrack]
+"Start"=dword:00000004
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\dmwappushservice]
+"Start"=dword:00000004
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\diagsvc]
+"Start"=dword:00000004
+
+
+
