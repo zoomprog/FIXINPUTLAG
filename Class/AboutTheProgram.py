@@ -14,6 +14,7 @@ class AboutTheProgram(QDialog, Ui_AboutTheProgram):
         self.setupUi(self)
         self.pushFixMouse.clicked.connect(self.FixMouse)
         self.pushFixRegedit.clicked.connect(self.FixRegedit)
+        self.pushFixInternet.clicked.connect(self.FixInternet)
 
     def FixMouse(self):
         batch_file_path = os.path.join('FileFixInputLag', 'FixMouse', 'Mouse.bat')
@@ -58,6 +59,28 @@ class AboutTheProgram(QDialog, Ui_AboutTheProgram):
                 print(f"Файл {reg_file} успешно применен.")
             except subprocess.CalledProcessError as e:
                 print(f"Ошибка при применении файла {reg_file}: {e}")
+
+    def FixInternet(self):
+        bat_files = [
+            ('DecreasePing.bat', None),
+            ('DisableNagle_sAlgorithm.bat', None),
+            ('DisableRSC.bat', None),
+            ('DisableTCPRSS.bat', None),
+            ('EnbleECNCapability.bat', None),
+            ('StopNetworkThrottlingCommand.bat', None),
+            ('TCPSetup.bat', None),
+            ('TCPTune.bat', None),
+        ]
+        # Устанавливаем кодировку один раз
+        subprocess.run(['chcp', '65001'], shell=True)
+
+        # Выполняем бат-файлы
+        for bat_file, arg in bat_files:
+            bat_path = os.path.join('FileFixInputLag', 'FixInternet', bat_file)
+            if arg:
+                subprocess.run([bat_path, arg], shell=True)
+            else:
+                subprocess.run(bat_path, shell=True)
 
 
 if __name__ == "__main__":
