@@ -24,7 +24,15 @@ class AboutTheProgram(QDialog, Ui_AboutTheProgram):
         bat_files = [
             ('DecreaseDelay.bat', 'nopause'),
             ('DisableDeliveryOptimization.bat', 'nopause'),
-            ('DisableDownloadMapsManager.bat', None)
+            ('DisableDownloadMapsManager.bat', None),
+            ('DisableLargeSystemCache.bat', None),
+            ('DisableNagle_sAlgorithm.bat', None),
+            ('DisableNetworkThrottling.bat', None),
+            ('DisableNetworkThrottlingIndex.bat', None),
+            ('DisableOneDriveSync.bat', None),
+            ('DisablePrintingServices.bat', None),
+            ('DisableSearchIndexing.bat', None),
+            ('DisableSyncHost.bat', None),
         ]
         # Устанавливаем кодировку один раз
         subprocess.run(['chcp', '65001'], shell=True)
@@ -36,6 +44,20 @@ class AboutTheProgram(QDialog, Ui_AboutTheProgram):
                 subprocess.run([bat_path, arg], shell=True)
             else:
                 subprocess.run(bat_path, shell=True)
+
+
+        reg_files = [
+            'FileFixInputLag/FixRegedit/Disable SysMain (Prefetch).reg',
+            'FileFixInputLag/FixRegedit/Disable Telemtry _ Data Collection.reg'
+        ]
+
+        for reg_file in reg_files:
+            try:
+                # Выполнение команды для применения .reg файла
+                result = subprocess.run(['regedit', '/s', reg_file], check=True)
+                print(f"Файл {reg_file} успешно применен.")
+            except subprocess.CalledProcessError as e:
+                print(f"Ошибка при применении файла {reg_file}: {e}")
 
 
 if __name__ == "__main__":
