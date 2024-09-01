@@ -26,7 +26,7 @@ class PlotCanvas(FigureCanvas):
         self.ax.grid(True)
         self.draw()
 
-class MainWindow(QMainWindow):
+class ScheduleWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Input Lag Tracker')
@@ -68,8 +68,3 @@ class MainWindow(QMainWindow):
             self.listener.stop()
             self.close()
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    main_window = MainWindow()
-    main_window.show()
-    sys.exit(app.exec())

@@ -6,11 +6,11 @@ import time
 import pyautogui
 from PyQt6.QtGui import QMouseEvent
 
-from PyQt6.QtWidgets import QDialog, QApplication
+from PyQt6.QtWidgets import QDialog, QApplication, QVBoxLayout
 from PyQt6.QtCore import Qt, QCoreApplication
 from PyQt6 import QtCore
-
 from ui_AboutTheProgram import Ui_AboutTheProgram
+from Function.ScheduleInputLags.ScheduleInputLags import ScheduleWindow
 
 class AboutTheProgram(QDialog, Ui_AboutTheProgram):
     def __init__(self):
@@ -23,6 +23,8 @@ class AboutTheProgram(QDialog, Ui_AboutTheProgram):
         self.pushCross.clicked.connect(self.CloseWindow)
         self.pushRollup.clicked.connect(self.Rollup)
         self.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground, True)
+        self.pushButton_3.clicked.connect(self.CheackInputLag)
+
 
     def FixMouse(self):
         batch_file_path = os.path.join('FileFixInputLag', 'FixMouse', 'Mouse.bat')
@@ -103,6 +105,11 @@ class AboutTheProgram(QDialog, Ui_AboutTheProgram):
             self.move(self.mapToGlobal(event.pos() - self.offset))
         else:
             self.offset = None
+
+    def CheackInputLag(self):
+        self.frame_5_layout = QVBoxLayout(self.frame_5)
+        self.Shedule = ScheduleWindow()
+        self.frame_5_layout.addWidget(self.Shedule)
 
 if __name__ == "__main__":
     import sys
