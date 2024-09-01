@@ -6,19 +6,18 @@ from PyQt6 import QtCore
 import Class.AboutTheProgram
 # GUI FILE
 from splash_screen import Ui_SplashScreen
+import icon
 
 
 class SplashScreen(QMainWindow, Ui_SplashScreen):
     def __init__(self):
         super().__init__()
 
-        # REMOVE STANDARD TITLE BAR
-        self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
-        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground, True)
 
         self.setupUi(self)
         self.show()
-
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground, True)
         # APPLY DROP SHADOW EFFECT
         self.circularBg.setStyleSheet("""
             QFrame {
@@ -36,6 +35,8 @@ class SplashScreen(QMainWindow, Ui_SplashScreen):
 
         # Инициализация счетчика
         self.counter = 0
+
+
 
     def progress(self):
         value = self.counter

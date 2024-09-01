@@ -1,47 +1,75 @@
-import winreg
+import sys
+import time
+from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget
+from PyQt6.QtCore import QTimer
+from pynput import keyboard
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 
+class PlotCanvas(FigureCanvas):
+    def __init__(self, parent=None):
+        self.fig, self.ax = plt.subplots()
+        super().__init__(self.fig)
+        self.setParent(parent)
+        self.ax.set_title('Input Lag Over Time')
+        self.ax.set_xlabel('Key Press Index')
+        self.ax.set_ylabel('Input Lag (seconds)')
+        self.ax.grid(True)
+        self.input_lags = []
 
-def set_mouse_registry_settings():
-    try:
-        # Open the registry key for the current user
-        key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, r'Control Panel\Mouse', 0, winreg.KEY_SET_VALUE)
+    def update_plot(self):
+        self.ax.clear()
+        self.ax.bar(range(len(self.input_lags)), self.input_lags, color='green')
+        self.ax.set_title('Input Lag Over Time')
+        self.ax.set_xlabel('Key Press Index')
+        self.ax.set_ylabel('Input Lag (seconds)')
+        self.ax.grid(True)
+        self.draw()
 
-        # Set the MouseSensitivity value
-        winreg.SetValueEx(key, 'MouseSensitivity', 0, winreg.REG_SZ, '10')
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle('Input Lag Tracker')
+        self.setGeometry(100, 100, 800, 600)
 
-        # Set the SmoothMouseXCurve value
-        smooth_mouse_x_curve = bytes.fromhex(
-            '00 00 00 00 00 00 00 00 C0 CC 0C 00 00 00 00 00 80 99 19 00 00 00 00 00 40 66 26 00 00 00 00 00 00 33 33 00 00 00 00 00')
-        winreg.SetValueEx(key, 'SmoothMouseXCurve', 0, winreg.REG_BINARY, smooth_mouse_x_curve)
+        self.plot_canvas = PlotCanvas(self)
+        self.setCentralWidget(self.plot_canvas)
 
-        # Set the SmoothMouseYCurve value
-        smooth_mouse_y_curve = bytes.fromhex(
-            '00 00 00 00 00 00 00 00 00 00 38 00 00 00 00 00 00 00 70 00 00 00 00 00 00 00 A8 00 00 00 00 00 00 00 E0 00 00 00 00 00')
-        winreg.SetValueEx(key, 'SmoothMouseYCurve', 0, winreg.REG_BINARY, smooth_mouse_y_curve)
+        self.press_count = 0
+        self.max_presses = 100
+        self.start_time = None
 
-        # Close the key
-        winreg.CloseKey(key)
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.check_key_presses)
+        self.timer.start(100)
 
-        # Open the registry key for the default user
-        key = winreg.OpenKey(winreg.HKEY_USERS, r'.DEFAULT\Control Panel\Mouse', 0, winreg.KEY_SET_VALUE)
+        self.listener = keyboard.Listener(on_press=self.on_press, on_release=self.on_release)
+        self.listener.start()
 
-        # Set the MouseSpeed value
-        winreg.SetValueEx(key, 'MouseSpeed', 0, winreg.REG_SZ, '0')
+    def check_key_presses(self):
+        pass  # This can be used to periodically check something if needed
 
-        # Set the MouseThreshold1 value
-        winreg.SetValueEx(key, 'MouseThreshold1', 0, winreg.REG_SZ, '0')
+    def on_press(self, key):
+        if self.start_time is None:
+            self.start_time = time.time()
+        else:
+            end_time = time.time()
+            input_lag = end_time - self.start_time
+            self.plot_canvas.input_lags.append(input_lag)
+            print(f"Input lag: {input_lag:.6f} seconds")
+            self.start_time = None
+            self.press_count += 1
+            self.plot_canvas.update_plot()
+            if self.press_count >= self.max_presses:
+                self.listener.stop()
 
-        # Set the MouseThreshold2 value
-        winreg.SetValueEx(key, 'MouseThreshold2', 0, winreg.REG_SZ, '0')
+    def on_release(self, key):
+        if key == keyboard.Key.esc:
+            self.listener.stop()
+            self.close()
 
-        # Close the key
-        winreg.CloseKey(key)
-
-        print("Registry settings updated successfully.")
-
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-
-# Call the function to set the registry settings
-set_mouse_registry_settings()
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    main_window = MainWindow()
+    main_window.show()
+    sys.exit(app.exec())

@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>Icons/rollup.png</file>
+    <file>Icons/rollup.png</file>
+    <file>Icons/cross2.png</file>
+    <file>Icons/cross.png</file>
+  </qresource>
+</RCC>

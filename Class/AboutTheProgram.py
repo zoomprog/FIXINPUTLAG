@@ -5,7 +5,10 @@ import sys
 import time
 import pyautogui
 
-from PyQt6.QtWidgets import QDialog
+from PyQt6.QtWidgets import QDialog, QApplication
+from PyQt6.QtCore import Qt, QCoreApplication
+from PyQt6 import QtCore
+
 from ui_AboutTheProgram import Ui_AboutTheProgram
 
 class AboutTheProgram(QDialog, Ui_AboutTheProgram):
@@ -15,6 +18,8 @@ class AboutTheProgram(QDialog, Ui_AboutTheProgram):
         self.pushFixMouse.clicked.connect(self.FixMouse)
         self.pushFixRegedit.clicked.connect(self.FixRegedit)
         self.pushFixInternet.clicked.connect(self.FixInternet)
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground, True)
 
     def FixMouse(self):
         batch_file_path = os.path.join('FileFixInputLag', 'FixMouse', 'Mouse.bat')
@@ -37,7 +42,6 @@ class AboutTheProgram(QDialog, Ui_AboutTheProgram):
         ]
         # Устанавливаем кодировку один раз
         subprocess.run(['chcp', '65001'], shell=True)
-
         # Выполняем бат-файлы
         for bat_file, arg in bat_files:
             bat_path = os.path.join('FileFixInputLag', 'FixRegedit', bat_file)
@@ -45,13 +49,10 @@ class AboutTheProgram(QDialog, Ui_AboutTheProgram):
                 subprocess.run([bat_path, arg], shell=True)
             else:
                 subprocess.run(bat_path, shell=True)
-
-
         reg_files = [
             'FileFixInputLag/FixRegedit/Disable SysMain (Prefetch).reg',
             'FileFixInputLag/FixRegedit/Disable Telemtry _ Data Collection.reg'
         ]
-
         for reg_file in reg_files:
             try:
                 # Выполнение команды для применения .reg файла
@@ -73,7 +74,6 @@ class AboutTheProgram(QDialog, Ui_AboutTheProgram):
         ]
         # Устанавливаем кодировку один раз
         subprocess.run(['chcp', '65001'], shell=True)
-
         # Выполняем бат-файлы
         for bat_file, arg in bat_files:
             bat_path = os.path.join('FileFixInputLag', 'FixInternet', bat_file)
@@ -86,7 +86,6 @@ class AboutTheProgram(QDialog, Ui_AboutTheProgram):
 if __name__ == "__main__":
     import sys
     from PyQt6.QtWidgets import QApplication
-
     app = QApplication(sys.argv)
     window = AboutTheProgram()
     window.show()

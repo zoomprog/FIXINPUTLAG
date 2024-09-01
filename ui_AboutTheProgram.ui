@@ -44,7 +44,7 @@
     <widget class="QFrame" name="frame_12">
      <property name="maximumSize">
       <size>
-       <width>1280</width>
+       <width>1000</width>
        <height>720</height>
       </size>
      </property>
@@ -52,7 +52,7 @@
       <string notr="true">*
 {
 	border: none;
- 	background-color:black;
+ 	background-color:#151C26;
 	border-radius:30;
 
 }</string>
@@ -135,22 +135,103 @@
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <widget class="QPushButton" name="pushButton">
+              <widget class="QFrame" name="frame_6">
                <property name="geometry">
                 <rect>
-                 <x>1110</x>
-                 <y>30</y>
-                 <width>101</width>
-                 <height>41</height>
+                 <x>750</x>
+                 <y>20</y>
+                 <width>200</width>
+                 <height>80</height>
                 </rect>
                </property>
-               <property name="styleSheet">
-                <string notr="true">color: black;
-background:white;</string>
+               <property name="minimumSize">
+                <size>
+                 <width>200</width>
+                 <height>80</height>
+                </size>
                </property>
-               <property name="text">
-                <string>Close</string>
+               <property name="maximumSize">
+                <size>
+                 <width>200</width>
+                 <height>80</height>
+                </size>
                </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <item>
+                 <widget class="QPushButton" name="pushButton_2">
+                  <property name="minimumSize">
+                   <size>
+                    <width>50</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>70</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton:hover {
+    background-color: #21262E;; /* Цвет кнопки при наведении */
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="icon.qrc">
+                    <normaloff>:/icon/Icons/rollup.png</normaloff>:/icon/Icons/rollup.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>42</width>
+                    <height>42</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>70</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>70</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton:hover {
+    background-color: #21262E;; /* Цвет кнопки при наведении */
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="icon.qrc">
+                    <normaloff>:/icon/Icons/cross2.png</normaloff>:/icon/Icons/cross2.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>42</width>
+                    <height>42</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </widget>
              </widget>
             </item>
@@ -170,102 +251,254 @@ background:white;</string>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_2">
                <item>
-                <widget class="QFrame" name="frame_2">
+                <widget class="QFrame" name="frame_7">
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
                  </property>
                  <property name="frameShadow">
                   <enum>QFrame::Raised</enum>
                  </property>
-                 <layout class="QHBoxLayout" name="horizontalLayout_3">
-                  <item>
-                   <widget class="QPushButton" name="pushFixMouse">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>500</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: black;
-background:white;</string>
-                    </property>
-                    <property name="text">
-                     <string>FixMouse</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushFixRegedit">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>500</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: black;
-background:white;</string>
-                    </property>
-                    <property name="text">
-                     <string>FixRegedit</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushFixInternet">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>500</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: black;
-background:white;</string>
-                    </property>
-                    <property name="text">
-                     <string>FixInternet</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
+                 <widget class="QFrame" name="frame_2">
+                  <property name="geometry">
+                   <rect>
+                    <x>10</x>
+                    <y>80</y>
+                    <width>301</width>
+                    <height>400</height>
+                   </rect>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>350</width>
+                    <height>400</height>
+                   </size>
+                  </property>
+                  <property name="layoutDirection">
+                   <enum>Qt::LeftToRight</enum>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color:#21262E;</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_3">
+                   <property name="spacing">
+                    <number>0</number>
+                   </property>
+                   <property name="leftMargin">
+                    <number>23</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>31</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>25</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>24</number>
+                   </property>
+                   <item>
+                    <widget class="QPushButton" name="pushFixInternet">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>80</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>300</width>
+                       <height>80</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Segoe UI Semibold</family>
+                       <pointsize>17</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: black;
+background:#5BBEEB;</string>
+                     </property>
+                     <property name="text">
+                      <string>FixInternet</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="pushFixRegedit">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>80</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>300</width>
+                       <height>80</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Segoe UI Semibold</family>
+                       <pointsize>17</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: black;
+background:#5BBEEB;</string>
+                     </property>
+                     <property name="text">
+                      <string>FixRegedit</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="pushFixMouse">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>80</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>300</width>
+                       <height>80</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Segoe UI Semibold</family>
+                       <pointsize>17</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: black;
+background:#5BBEEB;</string>
+                     </property>
+                     <property name="text">
+                      <string>FixMouse</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                 <widget class="QPushButton" name="pushButton_3">
+                  <property name="geometry">
+                   <rect>
+                    <x>30</x>
+                    <y>490</y>
+                    <width>261</width>
+                    <height>61</height>
+                   </rect>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Segoe UI Symbol</family>
+                    <pointsize>17</pointsize>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton {
+    background-color: #5BBEEB; /* Цвет кнопки по умолчанию */
+	color: black;
+}:
+QPushButton:hover {
+    color: #21262E;;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Проверить InputLag</string>
+                  </property>
+                 </widget>
                 </widget>
                </item>
                <item>
                 <widget class="QFrame" name="frame">
-                 <property name="minimumSize">
-                  <size>
-                   <width>400</width>
-                   <height>0</height>
-                  </size>
-                 </property>
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
                  </property>
                  <property name="frameShadow">
                   <enum>QFrame::Raised</enum>
                  </property>
-                 <widget class="QTextEdit" name="textEdit">
-                  <property name="geometry">
-                   <rect>
-                    <x>10</x>
-                    <y>50</y>
-                    <width>601</width>
-                    <height>451</height>
-                   </rect>
-                  </property>
-                  <property name="html">
-                   <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                 <layout class="QVBoxLayout" name="verticalLayout_4">
+                  <item>
+                   <widget class="QFrame" name="frame_4">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_5">
+                     <item>
+                      <widget class="QFrame" name="frame_3">
+                       <property name="minimumSize">
+                        <size>
+                         <width>560</width>
+                         <height>260</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>560</width>
+                         <height>260</height>
+                        </size>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <widget class="QTextEdit" name="textEdit">
+                        <property name="geometry">
+                         <rect>
+                          <x>10</x>
+                          <y>30</y>
+                          <width>561</width>
+                          <height>231</height>
+                         </rect>
+                        </property>
+                        <property name="html">
+                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;	Эта программа предназначена для устранения инпутлага, который может возникать при использовании компьютера. Инпутлаг — это задержка между вводом данных пользователем и реакцией системы на этот ввод. Программа включает в себя следующие функции:Фиксация проблем с мышью: &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;1 Оптимизация настроек мыши для уменьшения задержки.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;2 Настройка реестра: Изменение параметров реестра для улучшения производительности системы.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;3 Фиксация интернет-соединения: Оптимизация настроек сети для уменьшения задержки при передаче данных.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                  </property>
-                 </widget>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#69d7ff;&quot;&gt;FixInputLagSystem&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; — это небольшая, но мощная программа, разработанная для устранения системного инпутлага. Она оптимизирует обработку ввода с клавиатуры и мыши, обеспечивая мгновенную реакцию и улучшая общее взаимодействие с системой. Попрощайтесь с задержками и наслаждайтесь плавной и быстрой работой вашего устройства с FixInputLagSystem.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                        </property>
+                       </widget>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="frame_5">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
                 </widget>
                </item>
               </layout>
@@ -282,6 +515,8 @@ p, li { white-space: pre-wrap; }
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
  <connections/>
 </ui>
