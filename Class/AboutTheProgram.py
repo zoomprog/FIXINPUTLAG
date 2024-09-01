@@ -4,6 +4,7 @@ import ctypes
 import sys
 import time
 import pyautogui
+from PyQt6.QtGui import QMouseEvent
 
 from PyQt6.QtWidgets import QDialog, QApplication
 from PyQt6.QtCore import Qt, QCoreApplication
@@ -19,6 +20,8 @@ class AboutTheProgram(QDialog, Ui_AboutTheProgram):
         self.pushFixRegedit.clicked.connect(self.FixRegedit)
         self.pushFixInternet.clicked.connect(self.FixInternet)
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
+        self.pushCross.clicked.connect(self.CloseWindow)
+        self.pushRollup.clicked.connect(self.Rollup)
         self.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground, True)
 
     def FixMouse(self):
@@ -82,6 +85,24 @@ class AboutTheProgram(QDialog, Ui_AboutTheProgram):
             else:
                 subprocess.run(bat_path, shell=True)
 
+    @staticmethod
+    def CloseWindow(self):
+        sys.exit()
+
+    def Rollup(self):
+        self.showMinimized()
+
+    def mousePressEvent(self, event: QMouseEvent) -> None:
+        if event.button() == Qt.MouseButton.LeftButton and self.up_bar.underMouse():
+            self.offset = event.pos()
+        else:
+            self.offset = None
+
+    def mouseMoveEvent(self, event: QMouseEvent) -> None:
+        if self.offset is not None and event.buttons() == Qt.MouseButton.LeftButton and self.up_bar.underMouse():
+            self.move(self.mapToGlobal(event.pos() - self.offset))
+        else:
+            self.offset = None
 
 if __name__ == "__main__":
     import sys
