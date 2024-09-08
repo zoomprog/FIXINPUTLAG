@@ -1,8 +1,10 @@
 import sys
 from PyQt6.QtWidgets import QMainWindow, QApplication, QGraphicsDropShadowEffect
-from PyQt6.QtGui import QColor
+from PyQt6.QtGui import QColor, QIcon
 from PyQt6.QtCore import Qt
 from PyQt6 import QtCore
+from PyQt6.uic.properties import QtGui
+
 import Class.AboutTheProgram
 # GUI FILE
 from splash_screen import Ui_SplashScreen
@@ -13,9 +15,10 @@ class SplashScreen(QMainWindow, Ui_SplashScreen):
     def __init__(self):
         super().__init__()
 
-
         self.setupUi(self)
         self.show()
+        self.setWindowTitle("FixInputLag")
+        self.setWindowIcon(QIcon(r"C:\Users\rrarr\PycharmProjects\FIXINPUTLAG\Icons\logo.ico"))
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground, True)
         # APPLY DROP SHADOW EFFECT
@@ -75,5 +78,6 @@ class SplashScreen(QMainWindow, Ui_SplashScreen):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     mainWindow = SplashScreen()
+    mainWindow.setWindowIcon(QIcon(r"C:\Users\rrarr\PycharmProjects\FIXINPUTLAG\Icons\logo.ico"))
     mainWindow.show()
     sys.exit(app.exec())

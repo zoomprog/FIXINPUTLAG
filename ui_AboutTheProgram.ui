@@ -6,13 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1625</width>
-    <height>961</height>
+    <width>1000</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1280</width>
+    <width>1000</width>
+    <height>720</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1000</width>
     <height>720</height>
    </size>
   </property>
@@ -126,7 +132,7 @@
               <property name="minimumSize">
                <size>
                 <width>970</width>
-                <height>100</height>
+                <height>140</height>
                </size>
               </property>
               <property name="maximumSize">
@@ -239,6 +245,29 @@
                 </item>
                </layout>
               </widget>
+              <widget class="QPushButton" name="pushButton">
+               <property name="geometry">
+                <rect>
+                 <x>30</x>
+                 <y>0</y>
+                 <width>121</width>
+                 <height>131</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>Icons/logo.png</normaloff>Icons/logo.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>512</width>
+                 <height>512</height>
+                </size>
+               </property>
+              </widget>
              </widget>
             </item>
             <item>
@@ -280,7 +309,7 @@
                   <property name="geometry">
                    <rect>
                     <x>10</x>
-                    <y>80</y>
+                    <y>10</y>
                     <width>301</width>
                     <height>400</height>
                    </rect>
@@ -342,8 +371,15 @@
                       </font>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">color: black;
-background:#5BBEEB;</string>
+                      <string notr="true">QPushButton {
+                color: black;
+                background-color: #5BBEEB;
+                border: none;
+                padding: 10px;
+            }
+            QPushButton:hover {
+                color: white;
+            }</string>
                      </property>
                      <property name="text">
                       <string>FixInternet</string>
@@ -373,8 +409,15 @@ background:#5BBEEB;</string>
                       </font>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">color: black;
-background:#5BBEEB;</string>
+                      <string notr="true">QPushButton {
+                color: black;
+                background-color: #5BBEEB;
+                border: none;
+                padding: 10px;
+            }
+            QPushButton:hover {
+                color: white;
+            }</string>
                      </property>
                      <property name="text">
                       <string>FixRegedit</string>
@@ -404,8 +447,15 @@ background:#5BBEEB;</string>
                       </font>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">color: black;
-background:#5BBEEB;</string>
+                      <string notr="true">QPushButton {
+                color: black;
+                background-color: #5BBEEB;
+                border: none;
+                padding: 10px;
+            }
+            QPushButton:hover {
+                color: white;
+            }</string>
                      </property>
                      <property name="text">
                       <string>FixMouse</string>
@@ -418,7 +468,7 @@ background:#5BBEEB;</string>
                   <property name="geometry">
                    <rect>
                     <x>30</x>
-                    <y>490</y>
+                    <y>430</y>
                     <width>261</width>
                     <height>61</height>
                    </rect>
@@ -433,12 +483,14 @@ background:#5BBEEB;</string>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">QPushButton {
-    background-color: #5BBEEB; /* Цвет кнопки по умолчанию */
-	color: black;
-}:
-QPushButton:hover {
-    color: #21262E;;
-}</string>
+                color: black;
+                background-color: #5BBEEB;
+                border: none;
+                padding: 10px;
+            }
+            QPushButton:hover {
+                color: white;
+            }</string>
                   </property>
                   <property name="text">
                    <string>Проверить InputLag</string>

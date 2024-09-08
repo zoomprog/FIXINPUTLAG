@@ -12,8 +12,9 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_AboutTheProgram(object):
     def setupUi(self, AboutTheProgram):
         AboutTheProgram.setObjectName("AboutTheProgram")
-        AboutTheProgram.resize(1625, 961)
-        AboutTheProgram.setMinimumSize(QtCore.QSize(1280, 720))
+        AboutTheProgram.resize(1000, 720)
+        AboutTheProgram.setMinimumSize(QtCore.QSize(1000, 720))
+        AboutTheProgram.setMaximumSize(QtCore.QSize(1000, 720))
         AboutTheProgram.setStyleSheet("*{\n"
 "    color:white;\n"
 "}")
@@ -54,7 +55,8 @@ class Ui_AboutTheProgram(object):
         self.verticalLayout_2.setSpacing(6)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.up_bar = QtWidgets.QFrame(parent=self.header_frame)
-        self.up_bar.setMaximumSize(QtCore.QSize(16777215, 100))
+        self.up_bar.setMinimumSize(QtCore.QSize(970, 140))
+        self.up_bar.setMaximumSize(QtCore.QSize(970, 100))
         self.up_bar.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.up_bar.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.up_bar.setObjectName("up_bar")
@@ -93,6 +95,14 @@ class Ui_AboutTheProgram(object):
         self.pushCross.setIconSize(QtCore.QSize(42, 42))
         self.pushCross.setObjectName("pushCross")
         self.horizontalLayout_3.addWidget(self.pushCross)
+        self.pushButton = QtWidgets.QPushButton(parent=self.up_bar)
+        self.pushButton.setGeometry(QtCore.QRect(30, 0, 121, 131))
+        self.pushButton.setText("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(".\\Icons/logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton.setIcon(icon2)
+        self.pushButton.setIconSize(QtCore.QSize(512, 512))
+        self.pushButton.setObjectName("pushButton")
         self.verticalLayout_2.addWidget(self.up_bar)
         self.main_frame = QtWidgets.QFrame(parent=self.header_frame)
         self.main_frame.setMaximumSize(QtCore.QSize(16777215, 16777215))
@@ -102,11 +112,13 @@ class Ui_AboutTheProgram(object):
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.main_frame)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.frame_7 = QtWidgets.QFrame(parent=self.main_frame)
+        self.frame_7.setMinimumSize(QtCore.QSize(350, 566))
+        self.frame_7.setMaximumSize(QtCore.QSize(350, 566))
         self.frame_7.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_7.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_7.setObjectName("frame_7")
         self.frame_2 = QtWidgets.QFrame(parent=self.frame_7)
-        self.frame_2.setGeometry(QtCore.QRect(10, 80, 301, 400))
+        self.frame_2.setGeometry(QtCore.QRect(10, 10, 301, 400))
         self.frame_2.setMaximumSize(QtCore.QSize(350, 400))
         self.frame_2.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.frame_2.setStyleSheet("background-color:#21262E;")
@@ -126,8 +138,15 @@ class Ui_AboutTheProgram(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushFixInternet.setFont(font)
-        self.pushFixInternet.setStyleSheet("color: black;\n"
-"background:#5BBEEB;")
+        self.pushFixInternet.setStyleSheet("QPushButton {\n"
+"                color: black;\n"
+"                background-color: #5BBEEB;\n"
+"                border: none;\n"
+"                padding: 10px;\n"
+"            }\n"
+"            QPushButton:hover {\n"
+"                color: white;\n"
+"            }")
         self.pushFixInternet.setObjectName("pushFixInternet")
         self.verticalLayout_3.addWidget(self.pushFixInternet)
         self.pushFixRegedit = QtWidgets.QPushButton(parent=self.frame_2)
@@ -139,8 +158,15 @@ class Ui_AboutTheProgram(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushFixRegedit.setFont(font)
-        self.pushFixRegedit.setStyleSheet("color: black;\n"
-"background:#5BBEEB;")
+        self.pushFixRegedit.setStyleSheet("QPushButton {\n"
+"                color: black;\n"
+"                background-color: #5BBEEB;\n"
+"                border: none;\n"
+"                padding: 10px;\n"
+"            }\n"
+"            QPushButton:hover {\n"
+"                color: white;\n"
+"            }")
         self.pushFixRegedit.setObjectName("pushFixRegedit")
         self.verticalLayout_3.addWidget(self.pushFixRegedit)
         self.pushFixMouse = QtWidgets.QPushButton(parent=self.frame_2)
@@ -152,12 +178,19 @@ class Ui_AboutTheProgram(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushFixMouse.setFont(font)
-        self.pushFixMouse.setStyleSheet("color: black;\n"
-"background:#5BBEEB;")
+        self.pushFixMouse.setStyleSheet("QPushButton {\n"
+"                color: black;\n"
+"                background-color: #5BBEEB;\n"
+"                border: none;\n"
+"                padding: 10px;\n"
+"            }\n"
+"            QPushButton:hover {\n"
+"                color: white;\n"
+"            }")
         self.pushFixMouse.setObjectName("pushFixMouse")
         self.verticalLayout_3.addWidget(self.pushFixMouse)
         self.pushButton_3 = QtWidgets.QPushButton(parent=self.frame_7)
-        self.pushButton_3.setGeometry(QtCore.QRect(30, 490, 261, 61))
+        self.pushButton_3.setGeometry(QtCore.QRect(30, 430, 261, 61))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Symbol")
         font.setPointSize(17)
@@ -165,12 +198,14 @@ class Ui_AboutTheProgram(object):
         font.setWeight(50)
         self.pushButton_3.setFont(font)
         self.pushButton_3.setStyleSheet("QPushButton {\n"
-"    background-color: #5BBEEB; /* Цвет кнопки по умолчанию */\n"
-"    color: black;\n"
-"}:\n"
-"QPushButton:hover {\n"
-"    color: #21262E;;\n"
-"}")
+"                color: black;\n"
+"                background-color: #5BBEEB;\n"
+"                border: none;\n"
+"                padding: 10px;\n"
+"            }\n"
+"            QPushButton:hover {\n"
+"                color: white;\n"
+"            }")
         self.pushButton_3.setObjectName("pushButton_3")
         self.horizontalLayout_2.addWidget(self.frame_7)
         self.frame = QtWidgets.QFrame(parent=self.main_frame)
@@ -193,6 +228,8 @@ class Ui_AboutTheProgram(object):
         self.frame_3.setObjectName("frame_3")
         self.textEdit = QtWidgets.QTextEdit(parent=self.frame_3)
         self.textEdit.setGeometry(QtCore.QRect(10, 20, 561, 231))
+        self.textEdit.setMinimumSize(QtCore.QSize(561, 231))
+        self.textEdit.setMaximumSize(QtCore.QSize(561, 231))
         self.textEdit.setObjectName("textEdit")
         self.verticalLayout_5.addWidget(self.frame_3)
         self.frame_5 = QtWidgets.QFrame(parent=self.frame_4)

@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="icon">
+    <file>Icons/logo.png</file>
+    <file>Icons/logo.ico</file>
     <file>Icons/rollup.png</file>
     <file>Icons/rollup.png</file>
     <file>Icons/cross2.png</file>

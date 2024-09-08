@@ -4,7 +4,7 @@ import ctypes
 import sys
 import time
 import pyautogui
-from PyQt6.QtGui import QMouseEvent
+from PyQt6.QtGui import QMouseEvent, QIcon
 
 from PyQt6.QtWidgets import QDialog, QApplication, QVBoxLayout
 from PyQt6.QtCore import Qt, QCoreApplication
@@ -16,6 +16,8 @@ class AboutTheProgram(QDialog, Ui_AboutTheProgram):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.setWindowTitle("FixInputLag")
+        self.setWindowIcon(QIcon(r"C:\Users\rrarr\PycharmProjects\FIXINPUTLAG\Icons\logo.ico"))
         self.pushFixMouse.clicked.connect(self.FixMouse)
         self.pushFixRegedit.clicked.connect(self.FixRegedit)
         self.pushFixInternet.clicked.connect(self.FixInternet)
@@ -116,5 +118,6 @@ if __name__ == "__main__":
     from PyQt6.QtWidgets import QApplication
     app = QApplication(sys.argv)
     window = AboutTheProgram()
+    window.setWindowIcon(QIcon(r"C:\Users\rrarr\PycharmProjects\FIXINPUTLAG\Icons\logo.ico"))
     window.show()
     sys.exit(app.exec())
